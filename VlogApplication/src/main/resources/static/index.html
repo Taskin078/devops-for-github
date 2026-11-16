@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vlog – stories worth recording</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+    <nav class="nav">
+        <span class="logo"><i class="dot" aria-hidden="true"></i>Vlog</span>
+        <button class="btn btn-accent" id="newBtn">Write a post</button>
+    </nav>
+    <div class="viewfinder">
+        <span class="rec"><i class="dot" aria-hidden="true"></i>REC</span>
+        <h1>Stories worth<br>pressing record on.</h1>
+        <p>Read what the community is sharing, or add your own post in under a minute.</p>
+    </div>
+</header>
+
+<main class="wrap">
+    <section class="toolbar" aria-label="Find posts">
+        <input type="search" id="search" placeholder="Search by title, author or words in a post" aria-label="Search posts">
+        <div class="chips" id="chips" role="group" aria-label="Filter by author"></div>
+    </section>
+    <section id="feed" class="grid" aria-live="polite"><p class="status">Loading posts…</p></section>
+</main>
+
+<footer class="foot">Vlog · <span id="count">0</span> posts</footer>
+
+<!-- Read dialog -->
+<dialog id="readDlg" class="dlg dlg-read">
+    <div class="read-top" id="readTop"></div>
+    <article class="read-body">
+        <h2 id="readTitle"></h2>
+        <p class="read-meta" id="readMeta"></p>
+        <div class="read-content" id="readContent"></div>
+    </article>
+    <div class="row">
+        <button class="btn" id="readEdit">Edit</button>
+        <button class="btn btn-danger" id="readDelete">Delete</button>
+        <button class="btn btn-ink" id="readClose">Close</button>
+    </div>
+</dialog>
+
+<!-- Write / edit dialog -->
+<dialog id="formDlg" class="dlg">
+    <h3 id="formHead">Write a post</h3>
+    <label for="fTitle">Title</label>
+    <input id="fTitle" maxlength="150" autocomplete="off">
+    <label for="fAuthor">Author</label>
+    <input id="fAuthor" maxlength="80" autocomplete="name">
+    <label for="fContent">Content</label>
+    <textarea id="fContent" maxlength="5000"></textarea>
+    <p class="hint"><span id="chars">0</span> / 5000 characters</p>
+    <div class="row">
+        <button class="btn" id="cancelBtn">Cancel</button>
+        <button class="btn btn-accent" id="saveBtn">Publish post</button>
+    </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
